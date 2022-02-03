@@ -7,9 +7,20 @@ export default function Square({
   playerMovePositions,
   value,
 }) {
+  const [isClicked, setIsClicked] = useState(false);
   return (
     <div>
-      <button onClick={() => action(value)} className="square">
+      <button
+        onClick={() => {
+          if (!isClicked) {
+            action(value);
+            setIsClicked(true);
+          } else {
+            alert("Square already clicked!.");
+          }
+        }}
+        className="square"
+      >
         {playerMovePositions[value]}
       </button>
     </div>

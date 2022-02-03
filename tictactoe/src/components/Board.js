@@ -1,13 +1,16 @@
 import React from "react";
 import Square from "./Square";
 import "./Board.css";
+import { calculateWinner } from "../helpers/calculateWinner";
 
 export default function Board({
   playerMovePositions,
   currentPlayer,
   setCurrentPlayer,
   setPlayerMovePosition,
+  setGameOver,
 }) {
+  let stopGame = false;
   function handleClick(index) {
     //use a copy of the state to not mutate the state directly.
     const playerMoves = [...playerMovePositions];
@@ -21,6 +24,24 @@ export default function Board({
     }
 
     setPlayerMovePosition(playerMoves);
+
+    if (checkWinner()) {
+      alert(`${currentPlayer} won!`);
+      restartGame();
+      return;
+    }
+  }
+
+  function checkWinner() {
+    let winner = calculateWinner(playerMovePositions);
+    if (winner) {
+      return true;
+    }
+  }
+
+  function restartGame() {
+    setPlayerMovePosition(Array(9).fill(""));
+    window.location.reload();
   }
 
   return (
