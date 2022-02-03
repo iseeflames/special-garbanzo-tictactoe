@@ -14,7 +14,7 @@ export default function Game() {
     window.location.reload();
   }
 
-  if (isOver) {
+  if (!isOver) {
     return (
       <div>
         <Board
@@ -32,14 +32,7 @@ export default function Game() {
   } else {
     return (
       <div>
-        <Board
-          playerMovePositions={playerMovePositions}
-          currentPlayer={currentPlayer}
-          setCurrentPlayer={setCurrentPlayer}
-          setPlayerMovePosition={setPlayerMovePosition}
-          setGameOver={setGameOver}
-        />
-
+        <h1>The Game is Over. Click the button below to restart the game</h1>
         <button onClick={() => restartGame()}>Restart Game</button>
       </div>
     );
