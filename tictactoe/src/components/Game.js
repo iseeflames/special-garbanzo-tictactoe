@@ -7,17 +7,39 @@ export default function Game() {
     Array(9).fill("")
   );
   const [currentPlayer, setCurrentPlayer] = useState("X");
-  const [gameOver, setGameOver] = useState(false);
+  const [isOver, setGameOver] = useState(false);
 
-  return (
-    <div>
-      <Board
-        playerMovePositions={playerMovePositions}
-        currentPlayer={currentPlayer}
-        setCurrentPlayer={setCurrentPlayer}
-        setPlayerMovePosition={setPlayerMovePosition}
-        setGameOver={setGameOver}
-      />
-    </div>
-  );
+  function restartGame() {
+    setPlayerMovePosition(Array(9).fill(""));
+    window.location.reload();
+  }
+
+  if (isOver) {
+    return (
+      <div>
+        <Board
+          playerMovePositions={playerMovePositions}
+          currentPlayer={currentPlayer}
+          setCurrentPlayer={setCurrentPlayer}
+          setPlayerMovePosition={setPlayerMovePosition}
+          isOver={isOver}
+          setGameOver={setGameOver}
+        />
+
+        <button onClick={() => restartGame()}>Restart Game</button>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Board
+          playerMovePositions={playerMovePositions}
+          currentPlayer={currentPlayer}
+          setCurrentPlayer={setCurrentPlayer}
+          setPlayerMovePosition={setPlayerMovePosition}
+          setGameOver={setGameOver}
+        />
+      </div>
+    );
+  }
 }

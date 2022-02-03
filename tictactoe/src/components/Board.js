@@ -8,27 +8,31 @@ export default function Board({
   currentPlayer,
   setCurrentPlayer,
   setPlayerMovePosition,
+  isOver,
   setGameOver,
 }) {
-  let stopGame = false;
   function handleClick(index) {
     //use a copy of the state to not mutate the state directly.
-    const playerMoves = [...playerMovePositions];
+    if (!isOver) {
+      const playerMoves = [...playerMovePositions];
 
-    if (currentPlayer === "X") {
-      playerMoves[index] = "X";
-      setCurrentPlayer("O");
+      if (currentPlayer === "X") {
+        playerMoves[index] = "X";
+        setCurrentPlayer("O");
+      } else {
+        playerMoves[index] = "O";
+        setCurrentPlayer("X");
+      }
+
+      setPlayerMovePosition(playerMoves);
+
+      if (checkWinner()) {
+        alert(`${currentPlayer} has won the game!`);
+        stopGame();
+        return;
+      }
     } else {
-      playerMoves[index] = "O";
-      setCurrentPlayer("X");
-    }
-
-    setPlayerMovePosition(playerMoves);
-
-    if (checkWinner()) {
-      alert(`${currentPlayer} won!`);
-      restartGame();
-      return;
+      alert("The game is over. Restart it to play again.");
     }
   }
 
@@ -39,14 +43,13 @@ export default function Board({
     }
   }
 
-  function restartGame() {
-    setPlayerMovePosition(Array(9).fill(""));
-    window.location.reload();
+  function stopGame() {
+    setGameOver(true);
   }
 
   return (
     <div>
-      <h2>Current player is {currentPlayer}</h2>
+      <h2>{currentPlayer} its your turn.</h2>
       <div className="board">
         {playerMovePositions.map((square, index) => {
           return (
