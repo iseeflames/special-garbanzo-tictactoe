@@ -39,6 +39,8 @@ export default function Game() {
           setPlayerMovePosition={setPlayerMovePosition}
           setGameOver={setGameOver}
         />
+
+        <button onClick={() => restartGame()}>Restart Game</button>
       </div>
     );
   }

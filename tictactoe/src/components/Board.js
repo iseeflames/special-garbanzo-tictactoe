@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Square from "./Square";
 import "./Board.css";
 import { calculateWinner } from "../helpers/calculateWinner";
@@ -11,6 +11,14 @@ export default function Board({
   isOver,
   setGameOver,
 }) {
+  useEffect(() => {
+    console.log("Phomolo Phiri");
+    const result = checkWinner();
+    if (result) {
+      alert(`${result} has won the game!`);
+      stopGame();
+    }
+  }, [playerMovePositions]);
   function handleClick(index) {
     //use a copy of the state to not mutate the state directly.
     if (!isOver) {
@@ -25,12 +33,6 @@ export default function Board({
       }
 
       setPlayerMovePosition(playerMoves);
-
-      if (checkWinner()) {
-        alert(`${currentPlayer} has won the game!`);
-        stopGame();
-        return;
-      }
     } else {
       alert("The game is over. Restart it to play again.");
     }
@@ -38,8 +40,10 @@ export default function Board({
 
   function checkWinner() {
     let winner = calculateWinner(playerMovePositions);
-    if (winner) {
-      return true;
+    if (winner == "X") {
+      return winner;
+    } else if (winner == "O") {
+      return winner;
     }
   }
 
