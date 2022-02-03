@@ -9,7 +9,7 @@ export default function Board({
   setPlayerMovePosition,
 }) {
   function handleClick(index) {
-    //use a copy of the state
+    //use a copy of the state to not mutate the state directly.
     const playerMoves = [...playerMovePositions];
 
     if (currentPlayer === "X") {
@@ -20,16 +20,8 @@ export default function Board({
       setCurrentPlayer("X");
     }
 
-    // console.log(currentPlayer);
-    // let newPlayer = currentPlayer === "X" ? "O" : "X";
-    // console.log(newPlayer);
-    // console.log("Index " + index);
-    // playerMoves[index] = newPlayer;
-    // setCurrentPlayer(newPlayer);
     setPlayerMovePosition(playerMoves);
   }
-
-  // console.log(playerMovePositions);
 
   return (
     <div>
