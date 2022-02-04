@@ -1,3 +1,8 @@
+/**
+ *
+ * @param {*} squares The array containing players moves.
+ * @returns
+ */
 export function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
