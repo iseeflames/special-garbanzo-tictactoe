@@ -70,7 +70,10 @@ export default function Board({
 
   return (
     <div>
-      <h2>Player {currentPlayer} its your turn.</h2>
+      <h2 className="currentPlayer">Player {currentPlayer} its your turn.</h2>
+      <p className="game-instructions">
+        (Click on one of the squares to get started)
+      </p>
       <div className="board">
         {playerMovePositions.map((square, index) => {
           return (

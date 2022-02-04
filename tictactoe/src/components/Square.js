@@ -19,7 +19,7 @@ export default function Square({
             alert("Square already clicked!.");
           }
         }}
-        className="square"
+        className="button-54"
       >
         {playerMovePositions[value]}
       </button>

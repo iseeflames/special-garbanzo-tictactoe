@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Board from "./Board";
 import "./Game.css";
+import GameOver from "./GameOver";
 
 export default function Game() {
   const [playerMovePositions, setPlayerMovePosition] = useState(
@@ -26,14 +27,21 @@ export default function Game() {
           setGameOver={setGameOver}
         />
 
-        <button onClick={() => restartGame()}>Restart Game</button>
+        <button className="button-27" onClick={() => restartGame()}>
+          Restart Game
+        </button>
       </div>
     );
   } else {
     return (
       <div>
-        <h1>The Game is Over. Click the button below to restart the game</h1>
-        <button onClick={() => restartGame()}>Restart Game</button>
+        <GameOver />
+        <h1 className="gameOver-message">
+          The Game is Over. Click the button below to restart the game
+        </h1>
+        <button className="button-27" onClick={() => restartGame()}>
+          Restart Game
+        </button>
       </div>
     );
   }
