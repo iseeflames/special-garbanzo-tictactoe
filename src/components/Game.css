@@ -1,9 +1,12 @@
 .gameOver-message{
     width: 50%;
     margin: auto;
-    font-size: 100%;
+    font-size: 2em;
 }
 
+.gameOver-instruction{
+  font-size: 70%;
+}
 /* CSS */
 .button-27 {
   appearance: none;

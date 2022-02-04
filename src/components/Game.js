@@ -36,9 +36,10 @@ export default function Game() {
     return (
       <div>
         <GameOver />
-        <h1 className="gameOver-message">
-          The Game is Over. Click the button below to restart the game
-        </h1>
+        <h1 className="gameOver-message">The Game is Over.</h1>
+        <p className="gameOver-instruction">
+          (Click the button below to restart the game)
+        </p>
         <button className="button-27" onClick={() => restartGame()}>
           Restart Game
         </button>
