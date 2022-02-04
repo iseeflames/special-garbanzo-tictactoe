@@ -1,5 +1,4 @@
 .gameOver-message{
-    width: 50%;
     margin: auto;
     font-size: 2em;
 }
@@ -48,4 +47,11 @@
 .button-27:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .gameOver-message{
+    font-size: 1.5em;
+}
 }
