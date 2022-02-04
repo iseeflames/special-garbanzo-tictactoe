@@ -21,7 +21,7 @@ export default function Square({
         }}
         className="button-54"
       >
-        {playerMovePositions[value]}
+        <p className="playerMark">{playerMovePositions[value]}</p>
       </button>
     </div>
   );
