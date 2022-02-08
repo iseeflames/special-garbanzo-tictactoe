@@ -12,3 +12,4 @@ This is a simple React application for the tic tac toe game.
 To run the game type:
 1. `npm install` to get all the dependencies
 2. `npm start` to run the game on the local server.
+
