@@ -13,3 +13,4 @@ To run the game type:
 1. `npm install` to get all the dependencies
 2. `npm start` to run the game on the local server.
 
+Click [here](https://tictactoe-phomolo.netlify.app/) to view the deployed version of the game. 
